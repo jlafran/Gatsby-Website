@@ -29,20 +29,31 @@ export const query = graphql`
       }
     }
   }
+  allCategoriesJson(filter: {slug: {eq: $slug}}) {
+    edges {
+      node {
+        description
+        slug
+        title
+      }
+    }
+  }
   }
 `;
 
 function SingleCategory({ data }) {
   
-  const categories = data.allMarkdownRemark.edges;
+  const category= data.allCategoriesJson.edges;
   const blogs = data.allMarkdownRemark.edges;
+  console.log(data)
 
   return (
     <PageSpace top={80} bottom={100}>
       <SingleCategoryStyles>
         <div className="container">
-          <SEO title={categories[0].node.frontmatter.categoriesTitle} />
-          <PageHeader title={categories[0].node.frontmatter.categoriesTitle} className="pageHeader"/>
+          <SEO title={category[0].node.title} description={category[0].node.description}/>
+          <PageHeader title={category[0].node.title} className="pageHeader"/>
+          <p>{category[0].node.description}</p>
           <BlogGrid blogs={blogs} />
         </div>
       </SingleCategoryStyles>
