@@ -1,13 +1,12 @@
 ---
-title: My Second Post
+title: Hello World
 date: '2020-04-21'
 description: "Hello World"
-author: Raymond Lee
-featured: 'Yes'
-slug: my-second-post
+featured: 'No'
+slug: my-third-post
 featuredImage: "./salty_egg.jpg"
-categoriesSlug: "juan"
-categoriesTitle: "juancito"
+categoriesSlug: "fran"
+categoriesTitle: "francito"
 ---
 
 This is my first post on my new fake blog! How exciting!

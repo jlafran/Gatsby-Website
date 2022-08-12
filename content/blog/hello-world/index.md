@@ -1,6 +1,7 @@
 ---
 title: My First Post
 date: '2020-03-21'
+author: Raymond Lee
 description: "Hello World"
 featured: 'Yes'
 slug: my-first-post
