@@ -8,35 +8,19 @@ import { SectionTitle } from '../typography/Title';
 function TopCategories() {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(filter: {frontmatter: {featured: {eq: "Yes"}}}) {
-    edges {
-      node {
-        frontmatter {
-          categoriesSlug
-          categoriesTitle
-        }
-        id
+      allMarkdownRemark(filter: {frontmatter: {featuredCategory: {eq: 1}}}) {
+    nodes {
+      frontmatter {
+        title
+        slug
+        description
       }
     }
-    distinct(field: frontmatter___categoriesSlug)
   }
     }
   `);
-  const categories = data.allMarkdownRemark.edges;
-  
+  const categories = data.allMarkdownRemark.nodes;
 
-  var category = []
-
-  category.push(categories[0])
-  
-  
-  for (var i = 0; i < categories.length; i++){
-    for (var j = 0; j < category.length; j++){
-      if (category[j].node.frontmatter.categoriesSlug != categories[i].node.frontmatter.categoriesSlug){
-        category.push(categories[i])
-    }
-  }
-}
   return (
     <TopCategoriesStyles>
       <SectionTitle>Top Categories</SectionTitle>
@@ -44,7 +28,7 @@ function TopCategories() {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae veniam
         fuga minima.
       </ParagraphText>
-      <CategoryGrid categories={category} />
+      <CategoryGrid categories={categories} />
     </TopCategoriesStyles>
   );
 }
