@@ -9,6 +9,7 @@ import Pagination from '../components/Pagination';
 export const BlogsQuery = graphql`
   query blogListQuery($limit: Int!, $offset: Int!) {
     allMarkdownRemark(
+        filter: {frontmatter: {type: {eq: "blog"}}}
         sort: {fields: frontmatter___date, order: DESC}
         limit: $limit
         skip: $offset

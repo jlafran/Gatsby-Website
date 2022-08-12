@@ -1,4 +1,5 @@
 ---
+type: blog
 title: Hello World
 date: '2020-04-21'
 description: "Hello World"

@@ -8,7 +8,7 @@ import { SectionTitle } from '../typography/Title';
 function TopCategories() {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(filter: {frontmatter: {featuredCategory: {eq: 1}}}) {
+      allMarkdownRemark(filter: {frontmatter: {type: {eq: "category"}}}) {
     nodes {
       frontmatter {
         title

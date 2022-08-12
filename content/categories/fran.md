@@ -1,5 +1,5 @@
 ---
-featuredCategory: 1
+type: category
 title: francito
 description: Hello World
 slug: fran

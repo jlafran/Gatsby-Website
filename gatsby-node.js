@@ -4,6 +4,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const singleBlogTemplate = require.resolve('./src/templates/single-blog.js');
   const blogListTemplate = require.resolve('./src/templates/blog-list.js');
 
+  const singleCategoryTemplate = require.resolve(
+    './src/templates/single-category.js'
+  );
+
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -23,8 +27,24 @@ exports.createPages = async ({ graphql, actions }) => {
       
   `);
 
+const resultCategory = await graphql(`
+{
+  allMarkdownRemark(filter: {frontmatter: {type: {eq: "category"}}}) {
+    nodes {
+      frontmatter {
+        slug
+      }
+    }
+  }
+}
+
+  
+`);
+
   if (result.errors) throw result.errors;
   const blogs = result.data.allMarkdownRemark.edges;
+  const categories = resultCategory.data.allMarkdownRemark.nodes;
+  console.log(categories);
 
 
   // single blogs pages
@@ -35,6 +55,16 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {slug: blog.node.frontmatter.slug}
     });
   });
+
+    // single category pages
+    categories.forEach((category) => {
+      createPage({
+        path: `/categories/${category.frontmatter.slug}`,
+        component: singleCategoryTemplate,
+        context: { slug: category.frontmatter.slug },
+      });
+    });
+
 
   const totalBlogListPages = Math.ceil(blogs.length / postsPerPage);
   Array.from({ length: totalBlogListPages }).forEach((_, index) => {
