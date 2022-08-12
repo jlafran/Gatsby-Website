@@ -53,4 +53,9 @@ export const SingleBlogStyles = styled.div`
       font-size: 2rem;
     }
   }
+
+  .blog-content{
+      margin-top: 2vmax;
+      color: var(--gray);
+    }
 `;

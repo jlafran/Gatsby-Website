@@ -53,7 +53,7 @@ function SingleBlog({data}) {
               {blog.categoriesTitle}
             </ParagraphText>
           <ParagraphText>
-          <div 
+          <div className='blog-content'
             dangerouslySetInnerHTML={{__html: texto}} /></ParagraphText>
           </div>
           </div>
