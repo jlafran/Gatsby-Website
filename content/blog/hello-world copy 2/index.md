@@ -3,7 +3,7 @@ title: Hello World
 date: '2020-04-21'
 description: "Hello World"
 featured: 'Yes'
-slug: my-second-post
+slug: my-third-post
 featuredImage: "./salty_egg.jpg"
 categoriesSlug: "fran"
 categoriesTitle: "francito"

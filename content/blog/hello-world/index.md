@@ -1,9 +1,9 @@
 ---
-title: Hello World
+title: My First Post
 date: '2020-03-21'
 description: "Hello World"
 featured: 'Yes'
-slug: my-first-"post
+slug: my-first-post
 featuredImage: "./salty_egg.jpg"
 categoriesSlug: "juan"
 categoriesTitle: "juancito"
