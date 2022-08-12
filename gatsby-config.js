@@ -7,10 +7,25 @@ module.exports = {
     description: `Maestros en Sistemas. Artesanos de la Informática Mercantil.`,
   },
   plugins: [
+  
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-reading-time`],
+        plugins:[
+          {
+            resolve: `gatsby-remark-images`,
+            options:{
+              maxWidth:800,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/content/blog`,
       }
     },
     `gatsby-plugin-react-helmet`,

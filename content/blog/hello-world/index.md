@@ -1,18 +1,20 @@
 ---
-title: Hello World
+title: My First Post
 date: '2020-03-21'
 description: "Hello World"
 featured: 'Yes'
-slug: my-first-"post
+slug: my-first-post
 featuredImage: "./salty_egg.jpg"
 categoriesSlug: "juan"
 categoriesTitle: "juancito"
 ---
 
 This is my first post on my new fake blog! How exciting!
-
+<br />
+<br />
 I'm sure I'll write a lot more interesting things in the future.
-
+<br />
+<br />
 Oh, and here's a great quote from this Wikipedia on
 [salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
 
@@ -23,8 +25,13 @@ Oh, and here's a great quote from this Wikipedia on
 > wrapped in plastic, and vacuum packed. From the salt curing process, the
 > salted duck eggs have a briny aroma, a gelatin-like egg white and a
 > firm-textured, round yolk that is bright orange-red in color.
+<br />
+<br />
 
 ![Chinese Salty Egg](./salty_egg.jpg)
+
+<br />
+<br />
 
 You can also write code blocks here!
 
