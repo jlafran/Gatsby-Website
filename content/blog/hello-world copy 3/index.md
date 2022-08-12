@@ -3,6 +3,7 @@ title: Hello World
 date: '2020-04-21'
 description: "Hello World"
 featured: 'No'
+author: Adrian Perez
 slug: my-third-post
 featuredImage: "./salty_egg.jpg"
 categoriesSlug: "fran"

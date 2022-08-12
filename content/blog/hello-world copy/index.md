@@ -2,6 +2,7 @@
 title: My Second Post
 date: '2020-04-21'
 description: "Hello World"
+author: Raymond Lee
 featured: 'Yes'
 slug: my-second-post
 featuredImage: "./salty_egg.jpg"
