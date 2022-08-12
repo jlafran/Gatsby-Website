@@ -7,10 +7,9 @@ function CategoryGrid({ categories }) {
     <CategoryGridStyles>
       {categories.map((item) => (
         <CategoryItem
-          key={item.id}
-          title={item.frontmatter.title}
-          description={item.frontmatter.description}
-          slug={item.frontmatter.slug}
+          title={item.title}
+          description={item.description}
+          slug={item.slug}
         />
       ))}
     </CategoryGridStyles>

@@ -1,8 +1,11 @@
 exports.createPages = async ({ graphql, actions }) => {
-  const postsPerPage = parseInt(process.env.GATSBY_POST_PER_PAGE) || 10;
+  const postsPerPage = parseInt(process.env.GATSBY_POST_PER_PAGE) || 2;
   // templates path
   const singleBlogTemplate = require.resolve('./src/templates/single-blog.js');
   const blogListTemplate = require.resolve('./src/templates/blog-list.js');
+  const categoryListTemplate = require.resolve(
+    './src/templates/category-list.js'
+  );
 
   const singleCategoryTemplate = require.resolve(
     './src/templates/single-category.js'
@@ -29,11 +32,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
 const resultCategory = await graphql(`
 {
-  allMarkdownRemark(filter: {frontmatter: {type: {eq: "category"}}}) {
+  allCategoriesJson {
     nodes {
-      frontmatter {
-        slug
-      }
+      slug
     }
   }
 }
@@ -43,8 +44,7 @@ const resultCategory = await graphql(`
 
   if (result.errors) throw result.errors;
   const blogs = result.data.allMarkdownRemark.edges;
-  const categories = resultCategory.data.allMarkdownRemark.nodes;
-  console.log(categories);
+  const categories = resultCategory.data.allCategoriesJson.nodes;
 
 
   // single blogs pages
@@ -59,25 +59,40 @@ const resultCategory = await graphql(`
     // single category pages
     categories.forEach((category) => {
       createPage({
-        path: `/categories/${category.frontmatter.slug}`,
+        path: `/categories/${category.slug}`,
         component: singleCategoryTemplate,
-        context: { slug: category.frontmatter.slug },
+        context: { slug: category.slug },
       });
     });
 
-
+  // blogs paginated pages
   const totalBlogListPages = Math.ceil(blogs.length / postsPerPage);
-  Array.from({ length: totalBlogListPages }).forEach((_, index) => {
+  Array.from({ length: totalBlogListPages }).forEach((_, pageIndex) => {
     createPage({
-      path: index === 0 ? `/blogs` : `/blogs/${index + 1}`,
+      path: pageIndex === 0 ? `/blogs` : `/blogs/${pageIndex + 1}`,
       component: blogListTemplate,
       context: {
         limit: postsPerPage,
-        offset: index * postsPerPage,
+        offset: pageIndex * postsPerPage,
         numberOfPages: totalBlogListPages,
-        currentPage: index + 1,
+        currentPage: pageIndex + 1,
       },
     });
   });
+
+    // category paginated pages
+    const totalCategoryListPages = Math.ceil(categories.length / postsPerPage);
+    Array.from({ length: totalCategoryListPages }).forEach((_, index) => {
+      createPage({
+        path: index === 0 ? `/categories` : `/categories/${index + 1}`,
+        component: categoryListTemplate,
+        context: {
+          limit: postsPerPage,
+          offset: index * postsPerPage,
+          numberOfPages: totalCategoryListPages,
+          currentPage: index + 1,
+        },
+      });
+    });
 
 };
