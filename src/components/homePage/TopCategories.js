@@ -8,18 +8,16 @@ import { SectionTitle } from '../typography/Title';
 function TopCategories() {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(filter: {frontmatter: {type: {eq: "category"}}}) {
+    allCategoriesJson(filter: {featured: {eq: "Yes"}})  {
     nodes {
-      frontmatter {
-        title
-        slug
-        description
-      }
+      description
+      slug
+      title
     }
   }
     }
   `);
-  const categories = data.allMarkdownRemark.nodes;
+  const categories = data.allCategoriesJson.nodes;
 
   return (
     <TopCategoriesStyles>

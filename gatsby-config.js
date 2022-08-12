@@ -49,12 +49,5 @@ module.exports = {
         path: `${__dirname}/content/categories`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `categories`,
-        path: `${__dirname}/content/categories.json`,
-      },
-    },
   ],
 };

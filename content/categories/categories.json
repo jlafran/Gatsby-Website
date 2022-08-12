@@ -2,31 +2,37 @@
     { 
         "title": "francito",
         "description": "b",
+        "featured" : "Yes",
         "slug": "fran" 
     },
     { 
         "title": "juancito",
         "description": "b",
+        "featured" : "Yes",
         "slug": "juan" 
     },
     { 
         "title": "Rey",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat neque commodi perspiciatis quibusdam delectus voluptas ab eos natus laborum! Veritatis, facilis modi. Ex, adipisci.",
+        "featured" : "Yes",
         "slug": "rey" 
     },
     { 
         "title": "Kinga",
         "description": "b",
+        "featured" : "Yes",
         "slug": "kinga" 
     },
     { 
         "title": "DF",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat neque commodi perspiciatis quibusdam delectus voluptas ab eos natus laborum! Veritatis, facilis modi. Ex, adipisci.",
+        "featured" : "No",
         "slug": "df" 
     },
     { 
         "title": "Hola",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat neque commodi perspiciatis quibusdam delectus voluptas ab eos natus laborum! Veritatis, facilis modi. Ex, adipisci.",
+        "featured" : "No",
         "slug": "hola" 
     }
 ]
